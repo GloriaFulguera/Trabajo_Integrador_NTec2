@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './users.component.css'
 })
 export class UsersComponent {
-
+Users:any;
 }
