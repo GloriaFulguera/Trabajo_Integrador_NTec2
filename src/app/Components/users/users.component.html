@@ -1,33 +1,33 @@
 <div class="container">
-    <table class="table">
-        <thead>
+    <table class="table table-hover table-striped align-middle">
+        <thead class="table-dark">
             <tr>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col">USER</th>
-                <th scope="col">USERNAME</th>
-                <th scope="col">EMAIL</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>USER</th>
+                <th>USERNAME</th>
+                <th>EMAIL</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let x of Users">
-                <td scope="row">
+                <td>
                     <button data-bs-toggle="modal" 
                     data-bs-target="#detalleModal" 
-                    class="btn btn-outline-success btn-sm" 
+                    class="btn btn-outline-info btn-sm me-1" 
                     (click)="CapturarId(x)">Detalle</button>
                 </td>
                 <td>
                     <button data-bs-toggle="modal" 
                     data-bs-target="#posteosModal" 
-                    class="btn btn-warning btn-sm" 
+                    class="btn btn-warning btn-sm me-1"
                     (click)="GetPosteo(x.id)">Posteos</button>
                 </td>
-                <td scope="row">
+                <td>
                     <button data-bs-toggle="modal" 
                     data-bs-target="#tareasModal" 
-                    class="btn btn-primary btn-sm" 
+                    class="btn btn-primary btn-sm"
                     (click)="GetTarea(x.id)">Tareas</button>
                 </td>
                 <td>{{x.name}}</td>
@@ -70,9 +70,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div *ngFor="let x of DataSourceTareas" class="form-check mb-2">
+        <div *ngFor="let x of DataSourceTareas" class="py-2 border-bottom d-flex align-items-center gap-2" style="border-bottom: solid 1px rgb(191, 191, 191);">
           <input class="form-check-input" type="checkbox" [checked]="x.completed" disabled>
-          <label>{{ x.title }}</label>
+          <label style="font-size: 18px;">{{ x.title }}</label>
         </div> 
       </div>
       <div class="modal-footer">
@@ -84,16 +84,16 @@
 
 <!-- Modal Posteos-->
 <div class="modal fade" id="posteosModal" tabindex="-1" aria-labelledby="posteosModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="posteosModalLabel">POSTEOS</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div *ngFor="let x of DataSourcePosteos">
-          <label><b>{{ x.title }}</b></label>
-          <input class="form-control" type="text" value={{x.body}} disabled>
+        <div *ngFor="let x of DataSourcePosteos" class="mb-3 py-2">
+          <label class="form-label fw-bold" style="font-size: 18px;;">{{ x.title }}</label>
+          <textarea class="form-control" rows="2" disabled>{{ x.body }}</textarea>
         </div> 
       </div>
       <div class="modal-footer">
