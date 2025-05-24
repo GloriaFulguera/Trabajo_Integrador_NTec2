@@ -6,11 +6,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsersService {
 
-  url="https://jsonplaceholder.typicode.com/";
+  url="https://jsonplaceholder.typicode.com/users/";
 
   constructor(private httpClient:HttpClient) { }
 
   GetUsuarios(){
-    return this.httpClient.get(this.url+"users");
+    return this.httpClient.get(this.url);
+  }
+
+  GetTareas(id:any){
+    return this.httpClient.get(this.url+id+"/todos")
   }
 }
