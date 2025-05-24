@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit{
   Email:any;
   Id:any;
   DataSourceTareas:any;
+  DataSourcePosteos:any;
 
   ngOnInit(): void {
     this.userService.GetUsuarios().subscribe(x=>{
@@ -32,8 +33,14 @@ export class UsersComponent implements OnInit{
 
   GetTarea(id:any){
     this.userService.GetTareas(id).subscribe(x=>{
-      console.log(x);
       this.DataSourceTareas=x;
+    })
+  }
+
+  GetPosteo(id:any){
+    this.userService.GetPosteos(id).subscribe(x=>{
+      console.log(x);
+      this.DataSourcePosteos=x;
     })
   }
 }

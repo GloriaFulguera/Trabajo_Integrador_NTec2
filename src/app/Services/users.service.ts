@@ -15,6 +15,10 @@ export class UsersService {
   }
 
   GetTareas(id:any){
-    return this.httpClient.get(this.url+id+"/todos")
+    return this.httpClient.get(this.url+id+"/todos");
+  }
+
+  GetPosteos(id:any){
+    return this.httpClient.get(this.url+id+"/posts");
   }
 }

@@ -4,6 +4,7 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col"></th>
+                <th scope="col"></th>
                 <th scope="col">USER</th>
                 <th scope="col">USERNAME</th>
                 <th scope="col">EMAIL</th>
@@ -14,8 +15,14 @@
                 <td scope="row">
                     <button data-bs-toggle="modal" 
                     data-bs-target="#detalleModal" 
-                    class="btn btn-outline-primary btn-sm" 
+                    class="btn btn-outline-success btn-sm" 
                     (click)="CapturarId(x)">Detalle</button>
+                </td>
+                <td>
+                    <button data-bs-toggle="modal" 
+                    data-bs-target="#posteosModal" 
+                    class="btn btn-warning btn-sm" 
+                    (click)="GetPosteo(x.id)">Posteos</button>
                 </td>
                 <td scope="row">
                     <button data-bs-toggle="modal" 
@@ -31,7 +38,7 @@
     </table>
 </div>
 
-<!-- Modal -->
+<!-- Modal Detalle-->
 <div class="modal fade" id="detalleModal" tabindex="-1" aria-labelledby="detalleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -54,6 +61,7 @@
   </div>
 </div>
 
+<!-- Modal Tareas-->
 <div class="modal fade" id="tareasModal" tabindex="-1" aria-labelledby="tareasModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -65,6 +73,27 @@
         <div *ngFor="let x of DataSourceTareas" class="form-check mb-2">
           <input class="form-check-input" type="checkbox" [checked]="x.completed" disabled>
           <label>{{ x.title }}</label>
+        </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Posteos-->
+<div class="modal fade" id="posteosModal" tabindex="-1" aria-labelledby="posteosModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="posteosModalLabel">POSTEOS</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let x of DataSourcePosteos">
+          <label><b>{{ x.title }}</b></label>
+          <input class="form-control" type="text" value={{x.body}} disabled>
         </div> 
       </div>
       <div class="modal-footer">
